@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wang Yanqin | Academic Portfolio</title>
+  <style>
+    :root{
+      --bg:#fbfbfa;
+      --card:#ffffff;
+      --text:#171717;
+      --muted:#666;
+      --line:#e8e8e6;
+      --accent:#1f3a5f;
+      --soft:#f3f5f7;
+      --shadow:0 10px 30px rgba(0,0,0,0.04);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+    .wrap{
+      max-width:1080px;
+      margin:0 auto;
+      padding:28px 22px 72px;
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      padding:10px 0 24px;
+    }
+    .brand{
+      font-size:15px;
+      letter-spacing:.02em;
+      color:var(--muted);
+    }
+    .navlinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+    }
+    .navlinks a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .navlinks a:hover{color:var(--text)}
+    .hero{
+      background:linear-gradient(180deg,#ffffff, #fafafa);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      padding:44px;
+      border-radius:24px;
+      margin-bottom:28px;
+    }
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:12px;
+      color:var(--accent);
+      margin-bottom:14px;
+      font-weight:600;
+    }
+    h1{
+      margin:0;
+      font-size:56px;
+      line-height:1.02;
+      letter-spacing:-0.04em;
+      max-width:700px;
+    }
+    .subtitle{
+      margin-top:14px;
+      font-size:20px;
+      color:var(--muted);
+      max-width:760px;
+    }
+    .tagline{
+      margin-top:18px;
+      font-size:14px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--accent);
+      font-weight:600;
+    }
+    .contact{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px 26px;
+      margin-top:24px;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .contact a{
+      color:var(--text);
+      text-decoration:none;
+      border-bottom:1px solid #d7d7d7;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:28px;
+    }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      border-radius:999px;
+      padding:12px 18px;
+      font-size:14px;
+      font-weight:600;
+      transition:.15s ease;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:white;
+      border:1px solid var(--accent);
+    }
+    .btn.primary:hover{opacity:.92}
+    .btn.secondary{
+      background:white;
+      color:var(--text);
+      border:1px solid var(--line);
+    }
+    .btn.secondary:hover{background:var(--soft)}
+    .grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      margin-bottom:28px;
+    }
+    .panel{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+    .panel h2{
+      margin:0 0 14px;
+      font-size:28px;
+      letter-spacing:-.03em;
+    }
+    .panel p{
+      margin:0 0 14px;
+      max-width:70ch;
+    }
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+    .mini-card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,#fff,#fcfcfc);
+      border-radius:18px;
+      padding:18px;
+    }
+    .mini-card h3{
+      margin:0 0 8px;
+      font-size:17px;
+    }
+    .mini-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .stats{
+      display:grid;
+      gap:12px;
+    }
+    .stat{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      border-bottom:1px solid var(--line);
+      padding-bottom:10px;
+      font-size:15px;
+    }
+    .stat span:last-child{
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .section{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:28px;
+      margin-bottom:28px;
+    }
+    .section h2{
+      margin:0 0 16px;
+      font-size:30px;
+      letter-spacing:-.03em;
+    }
+    .awards{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+    .award{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      background:#fff;
+    }
+    .award-title{
+      font-weight:700;
+      margin-bottom:6px;
+    }
+    .award-desc{
+      color:var(--muted);
+      font-size:15px;
+    }
+    .doc-box{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:20px;
+      align-items:start;
+    }
+    .doc-side{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      background:#fff;
+    }
+    .doc-side ul{
+      margin:10px 0 0;
+      padding-left:18px;
+    }
+    .doc-viewer{
+      border:1px solid var(--line);
+      background:var(--soft);
+      border-radius:18px;
+      overflow:hidden;
+      min-height:700px;
+    }
+    .doc-viewer iframe{
+      width:100%;
+      height:700px;
+      border:0;
+      background:white;
+    }
+    .doc-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:18px;
+    }
+    .doc-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      background:#fff;
+    }
+    .doc-card h3{
+      margin:0 0 8px;
+      font-size:18px;
+    }
+    .doc-card p{
+      color:var(--muted);
+      margin:0 0 14px 0;
+      font-size:15px;
+    }
+    footer{
+      padding-top:8px;
+      color:var(--muted);
+      font-size:14px;
+      text-align:center;
+    }
+    @media (max-width:900px){
+      h1{font-size:44px}
+      .grid,.doc-box,.awards,.doc-grid{grid-template-columns:1fr}
+      .mini-grid{grid-template-columns:1fr}
+      .hero,.panel,.section{padding:22px}
+      .doc-viewer,.doc-viewer iframe{min-height:520px;height:520px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">Academic Portfolio</div>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#awards">Awards</a>
+        <a href="#academics">Academics</a>
+        <a href="#documents">Documents</a>
+        <a href="#future">Future</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">Wang Yanqin</div>
+      <h1>Mathematical reasoning, abstraction, and computer science.</h1>
+      <div class="subtitle">
+        Pre-university portfolio highlighting academic results, olympiad distinctions, testimonials,
+        and intellectual interests in theoretical and structural approaches to computing.
+      </div>
+      <div class="tagline">Abstraction • Mathematical Reasoning • Computational Thinking</div>
+
+      <div class="contact">
+        <div>Email: <a href="mailto:wangyanqin2005@gmail.com">wangyanqin2005@gmail.com</a></div>
+        <div>Phone: <a href="tel:+6587534858">+65 87534858</a></div>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="Wang_Yanqin_Portfolio.pdf" target="_blank">Open main portfolio</a>
+        <a class="btn secondary" href="yanqin_full_portfolio_certificates.pdf" target="_blank">Open certificates</a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="panel" id="about">
+        <h2>About</h2>
+        <p>
+          I approach learning as conceptual exploration rather than surface mastery. My interests centre on abstraction,
+          logical structure, and problem-solving, shaped by mathematical olympiad training and independent study in
+          computer science through CS50 and freeCodeCamp.
+        </p>
+        <p>
+          I am particularly drawn to how simple rules generate complex systems, whether in mathematics or computation.
+          My curiosity extends beyond disciplinary boundaries into philosophy and interdisciplinary inquiry.
+        </p>
+
+        <div class="mini-grid">
+          <div class="mini-card">
+            <h3>Thinking in computer science</h3>
+            <p>
+              My engagement with programming emphasises structure, generality, and reusable reasoning rather than only
+              arriving at an answer.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>Mathematical thinking</h3>
+            <p>
+              I am interested in how mathematical logic can interpret programs and how precise reasoning supports elegant systems.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="academics">
+        <h2>Academic results</h2>
+        <div class="stats">
+          <div class="stat"><span>H2 Mathematics</span><span>A</span></div>
+          <div class="stat"><span>H2 Physics</span><span>A</span></div>
+          <div class="stat"><span>H2 Chemistry</span><span>A</span></div>
+          <div class="stat"><span>H2 Economics</span><span>A</span></div>
+          <div class="stat"><span>H1 General Paper</span><span>A</span></div>
+          <div class="stat"><span>H3 Mathematics</span><span>Merit</span></div>
+          <div class="stat"><span>Project Work</span><span>B</span></div>
+          <div class="stat"><span>O-Level Higher Chinese</span><span>A2</span></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section" id="awards">
+      <h2>Awards & distinctions</h2>
+      <div class="awards">
+        <div class="award">
+          <div class="award-title">Singapore Mathematical Olympiad</div>
+          <div class="award-desc">Gold Award (Junior Section, 2019) and Silver Award (Junior Section, 2018).</div>
+        </div>
+        <div class="award">
+          <div class="award-title">Singapore Junior Physics Olympiad</div>
+          <div class="award-desc">Bronze Award (2019), Honourable Mention (2018), Honourable Mention (2020).</div>
+        </div>
+        <div class="award">
+          <div class="award-title">Essay and communication</div>
+          <div class="award-desc">SMS Essay Competition 2nd Prize, supported by strong performance in General Paper and Higher Chinese.</div>
+        </div>
+        <div class="award">
+          <div class="award-title">Leadership and school involvement</div>
+          <div class="award-desc">NCC (Land) Sergeant with documented co-curricular participation, achievement, and leadership progression.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="documents">
+      <h2>Portfolio & supporting documents</h2>
+      <div class="doc-grid">
+        <div class="doc-card">
+          <h3>Main portfolio</h3>
+          <p>
+            A concise three-page portfolio presenting my intellectual identity, academic narrative,
+            academic background, achievements, leadership experience, and future direction.
+          </p>
+          <a class="btn primary" href="Wang_Yanqin_Portfolio.pdf" target="_blank">Open main portfolio PDF</a>
+        </div>
+        <div class="doc-card">
+          <h3>Certificates and records</h3>
+          <p>
+            A combined supporting file containing official certificates, testimonials, school reports,
+            olympiad documents, and co-curricular records.
+          </p>
+          <a class="btn secondary" href="yanqin_full_portfolio_certificates.pdf" target="_blank">Open supporting documents PDF</a>
+        </div>
+      </div>
+
+      <div class="doc-box" style="margin-top:20px;">
+        <div class="doc-side">
+          <p>
+            The supporting documents file contains official academic records and materials in one place.
+          </p>
+          <ul>
+            <li>Cambridge A-Level certificate</li>
+            <li>Project Work certificate</li>
+            <li>O-Level Higher Chinese certificate</li>
+            <li>Olympiad certificates</li>
+            <li>Raffles Institution testimonials</li>
+            <li>School reports and CCA records</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="yanqin_full_portfolio_certificates.pdf" target="_blank">Open full certificates PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-viewer">
+          <iframe src="yanqin_full_portfolio_certificates.pdf" title="Academic certificates PDF"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="future">
+      <h2>Future direction</h2>
+      <p>
+        I intend to pursue Computer Science with emphasis on theoretical foundations, abstraction,
+        and mathematically informed approaches to computing systems and algorithms.
+      </p>
+      <p>
+        I am particularly interested in how mathematical reasoning informs program design, logic,
+        and algorithmic thinking.
+      </p>
+    </section>
+
+    <footer>
+      © Wang Yanqin
+    </footer>
+  </div>
+</body>
+</html>
