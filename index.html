@@ -297,13 +297,13 @@
   <div class="brand">Academic Portfolio</div>
   <div class="navlinks">
     <a href="#about">About</a>
-    <a href="#awards">Awards</a>
-    <a href="#academics">Academics</a>
-    <a href="#projects">Projects</a>
-    <a href="#code">Code</a>
-    <a href="#interests">Interests</a>
-    <a href="#documents">Documents</a>
-    <a href="#future">Future</a>
+<a href="#awards">Awards</a>
+<a href="#academics">Academics</a>
+<a href="#projects">Projects</a>
+<a href="#notes">Notes</a>
+<a href="#interests">Interests</a>
+<a href="#documents">Documents</a>
+<a href="#future">Future</a>
   </div>
 </div>
 
@@ -505,7 +505,174 @@ View simulation code
 
 </div>
 </section>
+<section class="section" id="notes">
+  <h2>Tower of Hanoi, Binary Structure, and Hypercubes</h2>
 
+  <p>
+    The optimal Tower of Hanoi solution reveals a strong connection between recursion,
+    binary numbers, and geometric structure.
+  </p>
+
+  <p>
+    For <em>n</em> disks, the recursive solution is:
+  </p>
+
+  <p style="text-align:center; font-weight:600; margin:18px 0;">
+    H(n) = H(n−1), move disk n, H(n−1)
+  </p>
+
+  <p>
+    This produces <strong>2<sup>n</sup> − 1</strong> moves. If we label the steps starting from 1,
+    then the disk moved at step <em>k</em> is determined by the
+    <strong>position of the lowest set bit of k</strong>.
+  </p>
+
+  <div style="overflow-x:auto; margin:18px 0;">
+    <table style="width:100%; border-collapse:collapse; font-size:15px;">
+      <thead>
+        <tr style="border-bottom:1px solid #e8e8e6;">
+          <th style="text-align:left; padding:10px 8px;">Step</th>
+          <th style="text-align:left; padding:10px 8px;">Binary</th>
+          <th style="text-align:left; padding:10px 8px;">Disk moved</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px;">1</td><td style="padding:8px;">001</td><td style="padding:8px;">1</td></tr>
+        <tr><td style="padding:8px;">2</td><td style="padding:8px;">010</td><td style="padding:8px;">2</td></tr>
+        <tr><td style="padding:8px;">3</td><td style="padding:8px;">011</td><td style="padding:8px;">1</td></tr>
+        <tr><td style="padding:8px;">4</td><td style="padding:8px;">100</td><td style="padding:8px;">3</td></tr>
+        <tr><td style="padding:8px;">5</td><td style="padding:8px;">101</td><td style="padding:8px;">1</td></tr>
+        <tr><td style="padding:8px;">6</td><td style="padding:8px;">110</td><td style="padding:8px;">2</td></tr>
+        <tr><td style="padding:8px;">7</td><td style="padding:8px;">111</td><td style="padding:8px;">1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    This gives the sequence <strong>1, 2, 1, 3, 1, 2, 1</strong>. The smallest disk moves every
+    other step, while disk <em>k</em> moves every <strong>2<sup>k</sup></strong> steps. This binary
+    structure makes the Hanoi process closely related to Gray code and hypercube traversal.
+  </p>
+
+  <p>
+    For four positions, each position can be represented using two binary digits:
+  </p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:24px 0;">
+    <div style="border:1px solid #e8e8e6; border-radius:18px; padding:20px; background:#fff;">
+      <h3 style="margin-top:0; font-size:18px;">2-dimensional case (N = 4)</h3>
+      <p style="color:#666; margin-bottom:14px;">
+        The four states form the vertices of a square.
+      </p>
+
+      <svg viewBox="0 0 260 220" width="100%" style="max-width:260px; display:block; margin:auto;">
+        <line x1="60" y1="50" x2="190" y2="50" stroke="#1f3a5f" stroke-width="2"/>
+        <line x1="60" y1="50" x2="60" y2="170" stroke="#1f3a5f" stroke-width="2"/>
+        <line x1="190" y1="50" x2="190" y2="170" stroke="#1f3a5f" stroke-width="2"/>
+        <line x1="60" y1="170" x2="190" y2="170" stroke="#1f3a5f" stroke-width="2"/>
+
+        <circle cx="60" cy="50" r="6" fill="#1f3a5f"/>
+        <circle cx="190" cy="50" r="6" fill="#1f3a5f"/>
+        <circle cx="60" cy="170" r="6" fill="#1f3a5f"/>
+        <circle cx="190" cy="170" r="6" fill="#1f3a5f"/>
+
+        <text x="38" y="42" font-size="16" fill="#171717">00</text>
+        <text x="198" y="42" font-size="16" fill="#171717">01</text>
+        <text x="38" y="192" font-size="16" fill="#171717">10</text>
+        <text x="198" y="192" font-size="16" fill="#171717">11</text>
+
+        <text x="105" y="38" font-size="14" fill="#666">A: horizontal flip</text>
+        <text x="200" y="110" font-size="14" fill="#666">B</text>
+      </svg>
+    </div>
+
+    <div style="border:1px solid #e8e8e6; border-radius:18px; padding:20px; background:#fff;">
+      <h3 style="margin-top:0; font-size:18px;">3-dimensional case (N = 8)</h3>
+      <p style="color:#666; margin-bottom:14px;">
+        For eight positions, the states form the vertices of a cube.
+      </p>
+
+      <svg viewBox="0 0 320 240" width="100%" style="max-width:300px; display:block; margin:auto;">
+        <!-- back square -->
+        <rect x="70" y="40" width="120" height="120" fill="none" stroke="#1f3a5f" stroke-width="2"/>
+        <!-- front square -->
+        <rect x="130" y="80" width="120" height="120" fill="none" stroke="#1f3a5f" stroke-width="2"/>
+
+        <!-- connecting edges -->
+        <line x1="70" y1="40" x2="130" y2="80" stroke="#1f3a5f" stroke-width="2"/>
+        <line x1="190" y1="40" x2="250" y2="80" stroke="#1f3a5f" stroke-width="2"/>
+        <line x1="70" y1="160" x2="130" y2="200" stroke="#1f3a5f" stroke-width="2"/>
+        <line x1="190" y1="160" x2="250" y2="200" stroke="#1f3a5f" stroke-width="2"/>
+
+        <!-- vertices -->
+        <circle cx="70" cy="40" r="5" fill="#1f3a5f"/>
+        <circle cx="190" cy="40" r="5" fill="#1f3a5f"/>
+        <circle cx="70" cy="160" r="5" fill="#1f3a5f"/>
+        <circle cx="190" cy="160" r="5" fill="#1f3a5f"/>
+        <circle cx="130" cy="80" r="5" fill="#1f3a5f"/>
+        <circle cx="250" cy="80" r="5" fill="#1f3a5f"/>
+        <circle cx="130" cy="200" r="5" fill="#1f3a5f"/>
+        <circle cx="250" cy="200" r="5" fill="#1f3a5f"/>
+
+        <!-- labels -->
+        <text x="42" y="35" font-size="14" fill="#171717">000</text>
+        <text x="194" y="35" font-size="14" fill="#171717">001</text>
+        <text x="42" y="180" font-size="14" fill="#171717">010</text>
+        <text x="194" y="180" font-size="14" fill="#171717">011</text>
+        <text x="114" y="74" font-size="14" fill="#171717">100</text>
+        <text x="254" y="74" font-size="14" fill="#171717">101</text>
+        <text x="114" y="222" font-size="14" fill="#171717">110</text>
+        <text x="254" y="222" font-size="14" fill="#171717">111</text>
+      </svg>
+    </div>
+  </div>
+
+  <p>
+    In this interpretation, each valid move changes exactly one binary coordinate.
+    That is why the sequence behaves like a <strong>Gray code walk</strong>: each step moves
+    along one edge of the hypercube.
+  </p>
+
+  <p>
+    This also explains why the move masks in the Lazy Susan construction correspond
+    to coordinate directions. For example, in the 2-dimensional case:
+  </p>
+
+  <div style="overflow-x:auto; margin:18px 0;">
+    <table style="width:100%; border-collapse:collapse; font-size:15px;">
+      <thead>
+        <tr style="border-bottom:1px solid #e8e8e6;">
+          <th style="text-align:left; padding:10px 8px;">Mask</th>
+          <th style="text-align:left; padding:10px 8px;">Pattern</th>
+          <th style="text-align:left; padding:10px 8px;">Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px;">A</td>
+          <td style="padding:8px;"><code>1010</code></td>
+          <td style="padding:8px;">Flips positions with last bit = 0</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">B</td>
+          <td style="padding:8px;"><code>1100</code></td>
+          <td style="padding:8px;">Flips positions with first bit = 0</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">C</td>
+          <td style="padding:8px;"><code>1000</code></td>
+          <td style="padding:8px;">Flips only the origin</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    More generally, for a system of size <strong>2<sup>k</sup></strong>, the configuration space forms
+    a <strong>k-dimensional hypercube</strong>. This is why the Hanoi sequence can be used to generate
+    systematic move masks: it already encodes an ordered traversal of one-coordinate changes.
+  </p>
+</section>
 
 <section class="section" id="interests">
   <h2>Intellectual Interests</h2>
